@@ -1,0 +1,14 @@
+{
+    "request_type": "POST",
+    "request_url": "http://localhost:40080/xss_reflected_json.php",
+    "request_body": "music=aa&form=submit",
+    "do_reflect": true,
+    "do_xss": true,
+    "headers": [],
+    "cookies" : [
+        {
+            "name" : "PHPSESSID",
+            "value" : "b74f246f11b5f6b22d67141f0126b8c7"
+        }
+    ]
+}
