@@ -1,13 +1,9 @@
-FROM wernight/phantomjs:latest
+FROM python:3.5.10-buster
 
-USER root
+COPY . /opt/attack-scripts/xss/
 
-RUN apt update && apt install python python-pip python-dev procps net-tools libxml2-dev libxslt1-dev build-essential libffi-dev libssl-dev gcc nano -y
-COPY . /home/phantomjs/xssmap
-RUN chmod +x /home/phantomjs/xssmap/entrypoint.sh
-RUN chown -R phantomjs:phantomjs /home/phantomjs
+RUN apt-get update && apt install python3-pip phantomjs -y
+RUN echo "export QT_QPA_PLATFORM=offscreen" >> /etc/environment
 
-WORKDIR /home/phantomjs/xssmap
-USER phantomjs
-RUN pip install -r requirements.txt 
-ENTRYPOINT ["/home/phantomjs/xssmap/entrypoint.sh"]
+RUN pip install --upgrade pip
+RUN pip install -r /opt/attack-scripts/xss/requirements.txt
