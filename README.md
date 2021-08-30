@@ -185,3 +185,6 @@ Use the following steps to demo the XSS tool:
 3. `python3 /opt/attack-scripts/xss/XssMap.py /opt/attack-scripts/xss/sample-json/xssmap_single_test_GET_input.json`
 4. `cat ~/XssMap_Results_*.json`
 
+## Docker Setup
+1. Use powershell to install vcxsrv (https://dev.to/darksmile92/run-gui-app-in-linux-docker-container-on-windows-host-4kde)
+2. Run: `docker run --name xssmap -dit -e DISPLAY=172.17.0.1:0.0 habibiefaried/xssmap`
